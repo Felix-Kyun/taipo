@@ -1,0 +1,19 @@
+[
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pedantic",
+      "-Iinclude",
+      "-o",
+      "build/taipo.o",
+      "src/taipo.c"
+    ],
+    "directory": "/home/felix/Projects/taipo",
+    "file": "/home/felix/Projects/taipo/src/taipo.c",
+    "output": "/home/felix/Projects/taipo/build/taipo.o"
+  }
+]
