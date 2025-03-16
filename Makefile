@@ -1,11 +1,11 @@
 # Makefile
 CC := gcc
 CFLAGS := -Wall -Wextra -Werror -pedantic  
-INCLUDE_DIR := include 
+INCLUDE_DIR := include
 SOURCE_DIR := src
 BUILD_DIR := build
-INCLUDES := -I$(INCLUDE_DIR)
-LIBS := $(shell pkg-config --cflags --libs ncursesw)
+INCLUDES := -I$(INCLUDE_DIR) -Icvec/include
+LIBS := $(shell pkg-config --cflags --libs ncursesw) -Lcvec -lVec
 SOURCES := $(shell find $(SOURCE_DIR) -type f -name '*.c')
 TARGET := taipo 
 
