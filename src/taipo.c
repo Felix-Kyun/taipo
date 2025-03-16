@@ -3,6 +3,10 @@
 
 #define VALIDATE(ch) (ch >= 32 /* space */ && ch <= 126 /* ~ */)
 
+// void print_with_font_size(const char *text, int font_size) {
+//     printw("\033_Gf=%d;a=%s\033\\", font_size, text);
+// }
+
 int main(void) {
   initscr();
   clear();
@@ -20,13 +24,15 @@ int main(void) {
   init_pair(2, COLOR_GREEN, -1);
   init_pair(3, COLOR_RED, -1);
 
-  const char *target = "hello world";
+  const char *target =
+      "As she sat watching the world go by, something caught her eye";
   // char* input = (char*)malloc(strlen(target) + 1);
 
   int current = 0;
   int x = (COLS - (int)strlen(target)) / 2;
 
   attron(COLOR_PAIR(1));
+  // print_with_font_size(target, 15);
   mvprintw(LINES / 2, x, "%s", target);
   attroff(COLOR_PAIR(1));
 
