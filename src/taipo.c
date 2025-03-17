@@ -29,10 +29,9 @@ Taipo *init_taipo(void) {
   init_pair(3, COLOR_RED, -1);
 
   Taipo *taipo = (Taipo *)malloc(sizeof(Taipo));
-  taipo->gen = init_generator(10);
-  generate_words(taipo->gen);
-  display_words(taipo->gen);
-  // clear_words(taipo->gen);
+  taipo->gen = init_generator();
+
+  generate_words(taipo->gen, 10);
   taipo->current = 0;
   taipo->offset = 0;
 

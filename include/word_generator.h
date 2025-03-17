@@ -11,16 +11,10 @@ typedef struct Generator {
 } Generator;
 
 // init
-Generator *init_generator(int nwords);
+Generator *init_generator(void);
 
 // generate n random words
-void generate_words(Generator *gen);
-
-// display words
-void display_words(Generator *gen);
-
-// clear screen
-void clear_words(Generator *gen);
+void generate_words(Generator *gen, int n);
 
 // free words
 void free_words(const char **words, int nwords);

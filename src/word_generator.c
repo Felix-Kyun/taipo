@@ -12,17 +12,17 @@
  * currently it partially supports multiple lines.
  */
 
-void generate_words(Generator *gen) {
+void generate_words(Generator *gen, int n) {
   // allocate and store random words
-  gen->words = (const char **)malloc(gen->nwords * sizeof(const char *));
+  gen->nwords = n;
+  gen->words = (const char **)malloc(n * sizeof(const char *));
   for (int i = 0; i < gen->nwords; i++) {
     gen->words[i] = strdup(english[rand() % 200]);
   }
 }
 
-Generator *init_generator(int nwords) {
+Generator *init_generator(void) {
   Generator *gen = (Generator *)malloc(sizeof(Generator));
-  gen->nwords = nwords;
   gen->words = NULL;
 
   return gen;
