@@ -10,6 +10,9 @@ typedef struct Taipo {
 
 Taipo *init_taipo(void);
 
+void increment_word(Taipo *taipo, int ch);
+void decrement_word(Taipo *taipo);
+
 void free_taipo(Taipo *taipo);
 
 #endif // __TAIPO_H__

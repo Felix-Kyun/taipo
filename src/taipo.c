@@ -33,6 +33,7 @@ Taipo *init_taipo(void) {
   taipo->gen = init_generator(10);
   generate_words(taipo->gen);
   display_words(taipo->gen);
+  // clear_words(taipo->gen);
   taipo->current = 0;
 
   return taipo;
@@ -44,3 +45,4 @@ void free_taipo(Taipo *taipo) {
 
   endwin();
 }
+
