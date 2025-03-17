@@ -15,12 +15,6 @@ int main(void) {
     if (ch < 0) {
       usleep(1000); // sleep for 1ms
     } 
-
-    if (ch == KEY_BACKSPACE) {
-      decrement_word(taipo);
-    } else if (VALIDATE(ch)) {
-      increment_word(taipo, ch);
-    }
   }
 
   int ch = 0;

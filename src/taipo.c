@@ -1,10 +1,9 @@
 #include "taipo.h"
 #include "word_generator.h"
-#include <stdlib.h>
-#include <time.h>
-#include "taipo.h"
 #include <locale.h>
 #include <ncurses.h>
+#include <stdlib.h>
+#include <time.h>
 
 Taipo *init_taipo(void) {
   // seed RNG
@@ -35,6 +34,7 @@ Taipo *init_taipo(void) {
   display_words(taipo->gen);
   // clear_words(taipo->gen);
   taipo->current = 0;
+  taipo->offset = 0;
 
   return taipo;
 }

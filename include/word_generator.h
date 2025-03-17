@@ -6,18 +6,6 @@ typedef struct Generator {
   // stores the current list of words
   const char **words;
 
-  // stores the length of each word
-  int *length_words;
-
-  // stores the number of words per line
-  Vec *words_line;
-
-  // stores the starting x position of each line
-  int *start_x;
-
-  // stores the starting y position
-  int start_y;
-
   // number of words to be generated
   int nwords;
 } Generator;

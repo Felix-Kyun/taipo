@@ -5,13 +5,11 @@
 
 typedef struct Taipo {
   int current; // current word that user is typing
+  int offset;
   Generator *gen;
 } Taipo;
 
 Taipo *init_taipo(void);
-
-void increment_word(Taipo *taipo, int ch);
-void decrement_word(Taipo *taipo);
 
 void free_taipo(Taipo *taipo);
 
