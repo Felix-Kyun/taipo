@@ -28,7 +28,7 @@ typedef struct Renderer {
   int y, x;
 
   // amount of words per line 
-  Vec *words_per_line;
+  Vec *words_per_line; // keeps the index at which the line ends
 
   // amount of chars per line 
   Vec *chars_per_line;
