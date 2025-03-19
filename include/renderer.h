@@ -18,12 +18,6 @@ typedef struct Renderer {
   // 0: default(pair0), 1: correct(pair1), 2: incorrect (pair2)
   int *correct_word_map;
 
-  // typed word buffer
-  char current_word[1024];
-
-  // size of the typed word
-  int current_word_typing_size;
-
   // screen dimensions
   int y, x;
 

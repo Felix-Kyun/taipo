@@ -1,4 +1,5 @@
 #include <ncurses.h>
+#include "input.h"
 #include "renderer.h"
 #include "taipo.h"
 #include <unistd.h>
@@ -19,9 +20,11 @@ int main(void) {
   // }
   
   render(taipo->renderer);
+  render_input_box(taipo->input);
 
   int ch = 0;
   while ((ch = getch()) != 'q') {
+    input_update(taipo->input, ch);
     usleep(1000);
   }
 

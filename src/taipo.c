@@ -1,4 +1,5 @@
 #include "taipo.h"
+#include "input.h"
 #include "word_generator.h"
 #include <locale.h>
 #include <ncurses.h>
@@ -38,6 +39,8 @@ Taipo *init_taipo(void) {
   // generate initial words 
   generate_words(gen, 10);
   renderer_update(renderer, (char **)gen->words, gen->nwords);
+
+  taipo->input = input_init(renderer);
 
   return taipo;
 }

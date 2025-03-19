@@ -13,7 +13,6 @@ Renderer *renderer_init(void) {
 
   renderer->size = 0;
   renderer->current_word_index = 0;
-  renderer->current_word_typing_size = 0;
 
   return renderer;
 }
@@ -23,9 +22,7 @@ void renderer_update(Renderer *renderer, char **word_list, int size) {
   renderer->size = size;
 
   renderer->current_word_index = 0;
-  renderer->current_word_typing_size = 0;
   renderer->correct_word_map = (int *)calloc(size, sizeof(int));
-  renderer->current_word[0] = '\0';
 
   getmaxyx(stdscr, renderer->y, renderer->x);
 
@@ -72,6 +69,8 @@ void render(Renderer *renderer) {
     // move to the center of the line
     move(renderer->y / 2 + line, (renderer->x - int_vec_get(renderer->chars_per_line, line)) / 2);
     for (int i = 0; i < renderer->size; i++) {
+
+      // TODO: move ifelse to COLORPAIR(wordMap[i] + 1)
       if (renderer->correct_word_map[i] == 0) {
         attron(COLOR_PAIR(1));
       } else if (renderer->correct_word_map[i] == 1) {
@@ -92,5 +91,4 @@ void render(Renderer *renderer) {
     }
   }
 
-  refresh();
 }

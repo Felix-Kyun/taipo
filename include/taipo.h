@@ -1,6 +1,7 @@
 #ifndef __TAIPO_H__
 #define __TAIPO_H__
 
+#include "input.h"
 #include "renderer.h"
 #include "word_generator.h"
 
@@ -10,6 +11,9 @@ typedef struct Taipo {
   
   // handles rendering the words
   Renderer *renderer;
+
+  // handles user input
+  Input *input;
 } Taipo;
 
 Taipo *init_taipo(void);
