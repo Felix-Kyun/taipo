@@ -1,3 +1,9 @@
 [submodule "cvec"]
 	path = cvec
 	url = https://github.com/Felix-Kyun/cvec.git
+[submodule "cvec_cstring"]
+	path = cvec_cstring
+	url = https://github.com/Felix-Kyun/cvec_cstring
+[submodule "cstring"]
+	path = cstring
+	url = https://github.com/Felix-Kyun/cstring
