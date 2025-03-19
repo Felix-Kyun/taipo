@@ -46,6 +46,24 @@
       "-Iinclude",
       "-Icvec/include",
       "-o",
+      "build/word_generator.o",
+      "src/word_generator.c"
+    ],
+    "directory": "/home/felix/Projects/taipo",
+    "file": "/home/felix/Projects/taipo/src/word_generator.c",
+    "output": "/home/felix/Projects/taipo/build/word_generator.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pedantic",
+      "-Iinclude",
+      "-Icvec/include",
+      "-o",
       "build/main.o",
       "src/main.c"
     ],
@@ -82,11 +100,11 @@
       "-Iinclude",
       "-Icvec/include",
       "-o",
-      "build/word_generator.o",
-      "src/word_generator.c"
+      "build/renderer.o",
+      "src/renderer.c"
     ],
     "directory": "/home/felix/Projects/taipo",
-    "file": "/home/felix/Projects/taipo/src/word_generator.c",
-    "output": "/home/felix/Projects/taipo/build/word_generator.o"
+    "file": "/home/felix/Projects/taipo/src/renderer.c",
+    "output": "/home/felix/Projects/taipo/build/renderer.o"
   }
 ]

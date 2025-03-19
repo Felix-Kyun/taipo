@@ -30,10 +30,14 @@ Taipo *init_taipo(void) {
 
   Taipo *taipo = (Taipo *)malloc(sizeof(Taipo));
   taipo->gen = init_generator();
+  taipo->renderer = renderer_init();
 
-  generate_words(taipo->gen, 10);
-  taipo->current = 0;
-  taipo->offset = 0;
+  Generator *gen = taipo->gen;
+  Renderer *renderer = taipo->renderer;
+
+  // generate initial words 
+  generate_words(gen, 10);
+  renderer_update(renderer, (char **)gen->words, gen->nwords);
 
   return taipo;
 }

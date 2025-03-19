@@ -1,12 +1,15 @@
 #ifndef __TAIPO_H__
 #define __TAIPO_H__
 
+#include "renderer.h"
 #include "word_generator.h"
 
 typedef struct Taipo {
-  int current; // current word that user is typing
-  int offset;
+  // for generating words
   Generator *gen;
+  
+  // handles rendering the words
+  Renderer *renderer;
 } Taipo;
 
 Taipo *init_taipo(void);

@@ -1,16 +1,8 @@
 #include "word_generator.h"
 #include "english_words.h"
-#include "misc.h"
-#include "vec.h"
 #include <ncurses.h>
 #include <stdlib.h>
 #include <string.h>
-
-/*
- * NOTE:
- * need to tweak rendering to support multiple lines.
- * currently it partially supports multiple lines.
- */
 
 void generate_words(Generator *gen, int n) {
   // allocate and store random words
