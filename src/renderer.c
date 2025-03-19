@@ -1,10 +1,11 @@
 #include "renderer.h"
+#include "cstring_vec.h"
 #include <ncurses.h>
 #include <stdlib.h>
 
 Renderer *renderer_init(void) {
   Renderer *renderer = (Renderer *)malloc(sizeof(Renderer));
-  renderer->word_list = NULL;
+  renderer->word_list = vec_init();
   renderer->size = 0;
   renderer->current_word_index = 0;
   renderer->current_word_typing_size = 0;
@@ -12,7 +13,7 @@ Renderer *renderer_init(void) {
 }
 
 void renderer_update(Renderer *renderer, char **word_list, int size) {
-  renderer->word_list = word_list;
+  // renderer->word_list = word_list;
   renderer->size = size;
 
   renderer->current_word_index = 0;
@@ -20,19 +21,26 @@ void renderer_update(Renderer *renderer, char **word_list, int size) {
   renderer->correct_word_map = (int *)calloc(size, sizeof(int));
   renderer->current_word[0] = '\0';
 
+  getmaxyx(stdscr, renderer->y, renderer->x);
+
+  // calc how many words will fit in one line + the space used by that line
+  
+  for (int i = 0; i < size; i++) {
+
+    CString *word = cstring_from(word_list[i]);
+    
+    // put the word in the word list
+    printw("%d\n", word->size);
+    cstring_vec_push_back(renderer->word_list, word);
+  }
 }
 
 // currently only supports one line rendering
 void render(Renderer *renderer) {
   clear();
 
-  int y, x;
-  getmaxyx(stdscr, y, x);
-
   // move to center line
-  move(y - 1, x - 1); // just to avoid compile error of x not being used, idk
-                      // why it happens =_=
-  move(y / 2, 10);
+  move(renderer->y / 2, 0);
 
   // render word list {0: default, 1: correct, 2: incorrect}
   for (int i = 0; i < renderer->size; i++) {
@@ -44,7 +52,7 @@ void render(Renderer *renderer) {
       attron(COLOR_PAIR(3));
     }
 
-    printw("%s ", renderer->word_list[i]);
+    printw("%s ", cstring_vec_get(renderer->word_list, i)->str);
 
     if (renderer->correct_word_map[i] == 0) {
       attroff(COLOR_PAIR(1));

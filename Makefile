@@ -4,8 +4,8 @@ CFLAGS := -Wall -Wextra -Werror -pedantic
 INCLUDE_DIR := include
 SOURCE_DIR := src
 BUILD_DIR := build
-INCLUDES := -I$(INCLUDE_DIR) -Icvec/include
-LIBS := $(shell pkg-config --cflags --libs ncursesw) -Lcvec -lVec
+INCLUDES := -I$(INCLUDE_DIR) -Icvec/include -Icvec_cstring/include -Icstring/include
+LIBS := $(shell pkg-config --cflags --libs ncursesw) -Lcvec_cstring -lCvecCString -Lcvec -lVec -Lcstring -lCString  
 SOURCES := $(shell find $(SOURCE_DIR) -type f -name '*.c')
 TARGET := taipo 
 

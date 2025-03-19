@@ -1,9 +1,11 @@
 #ifndef __TAIPO__RENDERER_H__
 #define __TAIPO__RENDERER_H__
 
+#include "vec.h"
 typedef struct Renderer {
   // store the array of words to be typed 
-  char **word_list;
+  // char **word_list;
+  Vec *word_list;
 
   // the size of the above array 
   int size;
@@ -21,6 +23,15 @@ typedef struct Renderer {
 
   // size of the typed word
   int current_word_typing_size;
+
+  // screen dimensions
+  int y, x;
+
+  // amount of words per line 
+  Vec *words_per_line;
+
+  // amount of chars per line 
+  Vec *chars_per_line;
 
 } Renderer;
 

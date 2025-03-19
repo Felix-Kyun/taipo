@@ -9,6 +9,8 @@
       "-pedantic",
       "-Iinclude",
       "-Icvec/include",
+      "-Icvec_cstring/include",
+      "-Icstring/include",
       "-o",
       "build/lang/english.o",
       "src/lang/english.c"
@@ -27,6 +29,8 @@
       "-pedantic",
       "-Iinclude",
       "-Icvec/include",
+      "-Icvec_cstring/include",
+      "-Icstring/include",
       "-o",
       "build/misc.o",
       "src/misc.c"
@@ -45,6 +49,8 @@
       "-pedantic",
       "-Iinclude",
       "-Icvec/include",
+      "-Icvec_cstring/include",
+      "-Icstring/include",
       "-o",
       "build/word_generator.o",
       "src/word_generator.c"
@@ -63,24 +69,8 @@
       "-pedantic",
       "-Iinclude",
       "-Icvec/include",
-      "-o",
-      "build/main.o",
-      "src/main.c"
-    ],
-    "directory": "/home/felix/Projects/taipo",
-    "file": "/home/felix/Projects/taipo/src/main.c",
-    "output": "/home/felix/Projects/taipo/build/main.o"
-  },
-  {
-    "arguments": [
-      "/usr/bin/gcc",
-      "-c",
-      "-Wall",
-      "-Wextra",
-      "-Werror",
-      "-pedantic",
-      "-Iinclude",
-      "-Icvec/include",
+      "-Icvec_cstring/include",
+      "-Icstring/include",
       "-o",
       "build/taipo.o",
       "src/taipo.c"
@@ -99,6 +89,28 @@
       "-pedantic",
       "-Iinclude",
       "-Icvec/include",
+      "-Icvec_cstring/include",
+      "-Icstring/include",
+      "-o",
+      "build/main.o",
+      "src/main.c"
+    ],
+    "directory": "/home/felix/Projects/taipo",
+    "file": "/home/felix/Projects/taipo/src/main.c",
+    "output": "/home/felix/Projects/taipo/build/main.o"
+  },
+  {
+    "arguments": [
+      "/usr/bin/gcc",
+      "-c",
+      "-Wall",
+      "-Wextra",
+      "-Werror",
+      "-pedantic",
+      "-Iinclude",
+      "-Icvec/include",
+      "-Icvec_cstring/include",
+      "-Icstring/include",
       "-o",
       "build/renderer.o",
       "src/renderer.c"
