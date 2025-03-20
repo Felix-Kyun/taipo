@@ -1,8 +1,8 @@
-#include <ncurses.h>
 #include "events.h"
 #include "input.h"
 #include "renderer.h"
 #include "taipo.h"
+#include <ncurses.h>
 #include <unistd.h>
 
 #define VALIDATE(ch) (ch >= 32 /* space */ && ch <= 126 /* ~ */)
@@ -19,9 +19,9 @@ int main(void) {
   //
   //   if (ch < 0) {
   //     usleep(1000); // sleep for 1ms
-  //   } 
+  //   }
   // }
-  
+
   render(taipo->renderer);
   render_input_box(taipo->input);
 
@@ -29,8 +29,9 @@ int main(void) {
   while ((ch = getch()) != 'q') {
     input_update(taipo->input, ch);
     usleep(1000);
+    if (event & END_GAME)
+      break;
   }
 
   free_taipo(taipo);
-
 }

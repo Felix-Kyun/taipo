@@ -52,8 +52,11 @@ void input_update(Input *input, int ch) {
     }
 
     if (input->renderer->current_word_index <
-        (int)input->renderer->word_list->size - 1)
+        (int)input->renderer->word_list->size - 1) {
       input->renderer->current_word_index++;
+    } else {
+      event |= END;
+    }
 
     cstring_free(input->input);
     input->input = cstring_new();
@@ -95,11 +98,7 @@ void input_update(Input *input, int ch) {
     event = UNKNOWN;
 
     // end the game
-    WINDOW *endwin =
-        newwin(5, 20, input->renderer->y / 2 - 2, input->renderer->x / 2 - 10);
-    box(endwin, 0, 0);
-    mvwprintw(endwin, 2, 2, "Game Over!");
-    wrefresh(endwin);
+    show_end_screen(input->hud);
   }
 }
 

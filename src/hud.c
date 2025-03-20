@@ -9,7 +9,7 @@ Hud *hud_init(void) {
   hud->y = 0;
   hud->correct_words = 0;
   hud->incorrect_words = 0;
-  hud->time = 0;
+  hud->time = get_seconds();
 
   return hud;
 }

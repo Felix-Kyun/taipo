@@ -7,6 +7,7 @@ typedef enum Game_event {
   END = 1 << 1,
   RENDER = 1 << 2,
   START_DONE = 1 << 3,
+  END_GAME = 1 << 4
 } Game_event;
 
 #endif // __TAIPO__EVENTS_H__
