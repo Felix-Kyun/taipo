@@ -1,10 +1,13 @@
 #include <ncurses.h>
+#include "events.h"
 #include "input.h"
 #include "renderer.h"
 #include "taipo.h"
 #include <unistd.h>
 
 #define VALIDATE(ch) (ch >= 32 /* space */ && ch <= 126 /* ~ */)
+
+Game_event event = UNKNOWN;
 
 int main(void) {
 

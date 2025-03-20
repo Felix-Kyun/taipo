@@ -3,6 +3,7 @@
 
 #include "cstring.h"
 #include "renderer.h"
+#include "hud.h"
 
 typedef struct Input {
 
@@ -14,6 +15,10 @@ typedef struct Input {
 
   // store the current position of the input box
   int box_y, box_x;
+
+  // hud
+  Hud *hud;
+
 } Input;
 
 Input *input_init(Renderer *renderer);

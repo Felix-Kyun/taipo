@@ -1,6 +1,7 @@
 #ifndef __TAIPO__RENDERER_H__
 #define __TAIPO__RENDERER_H__
 
+#include "hud.h"
 #include "vec.h"
 typedef struct Renderer {
   // store the array of words to be typed 
@@ -26,6 +27,9 @@ typedef struct Renderer {
 
   // amount of chars per line 
   Vec *chars_per_line;
+
+  // hud 
+  Hud *hud;
 
 } Renderer;
 

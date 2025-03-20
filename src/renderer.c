@@ -11,6 +11,8 @@ Renderer *renderer_init(void) {
   renderer->words_per_line = vec_init();
   renderer->chars_per_line = vec_init();
 
+  renderer->hud = hud_init();
+
   renderer->size = 0;
   renderer->current_word_index = 0;
 
