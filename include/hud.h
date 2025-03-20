@@ -18,7 +18,6 @@ typedef struct Hud {
 
 Hud *hud_init(void);
 
-void hud_update(Hud *hud, int max_y, int max_x);
 void render_hud(Hud *hud);
 
 void hud_correct(Hud *hud);

@@ -2,6 +2,7 @@
 #include "misc.h"
 #include <ncurses.h>
 #include <stdlib.h>
+#include <string.h>
 
 Hud *hud_init(void) {
   Hud *hud = (Hud *)malloc(sizeof(Hud));
@@ -11,20 +12,19 @@ Hud *hud_init(void) {
   hud->incorrect_words = 0;
   hud->time = get_seconds();
 
+  getmaxyx(stdscr, hud->y, hud->x);
+
   return hud;
 }
 
-void hud_update(Hud *hud, int max_y, int max_x) {
-  hud->x = max_x;
-  hud->y = max_y;
-}
 
 void render_hud(Hud *hud) {
-  mvprintw(2, 2, "Correct: %d", hud->correct_words);
-  mvprintw(3, 2, "Incorrect: %d", hud->incorrect_words);
-  mvprintw(4, 2, "Time: %f", get_seconds() - hud->time);
-}
+  double time = get_seconds() - hud->time;
+  int current_word = hud->correct_words + hud->incorrect_words;
+  double wpm = (hud->correct_words / (time / 60.0));
 
+  mvprintw(hud->y * .35, (hud->x - 38) / 2,  "WPM: %.2f Progress: %i / 10 Time: %.1f", wpm, current_word, time);
+}
 void hud_correct(Hud *hud) { hud->correct_words++; }
 void hud_incorrect(Hud *hud) { hud->incorrect_words++; }
 void hud_update_time(Hud *hud) { hud->time = get_seconds(); }
